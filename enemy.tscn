@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cb4eerbtgi8w7"]
+
+[ext_resource type="Script" uid="uid://c46fk6gccwulc" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://bv8qyrmx08jq" path="res://IMAGES 2/SOUL-sheet (1).png" id="2_4gyqm"]
+[ext_resource type="AudioStream" uid="uid://bapires7dxwrc" path="res://SOUND/Soul 1.mp3" id="2_iifgy"]
+[ext_resource type="Script" uid="uid://bf1fypj1q5dyo" path="res://asda.gd" id="5_epg4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uh1b"]
+radius = 6.0827627
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(0, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(32, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(64, 42, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(96, 42, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uh1b"]
+animations = [{
+"frames": [{
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_3yqyl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uh1b"]
+size = Vector2(115, 68)
+
+[node name="ENEMY" type="CharacterBody2D" unique_id=1326315114]
+script = ExtResource("1_4gyqm")
+attack_range = 10.0
+soul_1 = ExtResource("2_iifgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1914641265]
+shape = SubResource("CircleShape2D_3uh1b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1749695967]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_3uh1b")
+autoplay = "default"
+frame_progress = 0.5596668
+
+[node name="soul sound" type="AudioStreamPlayer2D" parent="." unique_id=1033927683]
+stream = ExtResource("2_iifgy")
+
+[node name="asda" type="Area2D" parent="." unique_id=1696516870]
+script = ExtResource("5_epg4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="asda" unique_id=2048694012]
+position = Vector2(-1.5, -28)
+shape = SubResource("RectangleShape2D_3uh1b")
+
+[connection signal="body_shape_entered" from="asda" to="asda" method="_on_body_shape_entered"]

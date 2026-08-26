@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bs7we3drmlyuv"]
+
+[ext_resource type="Shader" uid="uid://u2htjobuxjf" path="res://new_shader.gdshader" id="1_7gfsc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3ieu"]
+shader = ExtResource("1_7gfsc")
+shader_parameter/alpha = 1.9300000000000002
+shader_parameter/inner_radius = 0.145
+shader_parameter/outer_radius = 2.57
+
+[node name="VIGNETEE" type="Node2D" unique_id=1507174751]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774559167]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=286248752]
+material = SubResource("ShaderMaterial_m3ieu")
+anchors_preset = -1
+offset_right = 1800.0
+offset_bottom = 905.0

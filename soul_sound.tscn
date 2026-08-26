@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b6i56smdjq4bq"]
+
+[ext_resource type="Script" uid="uid://duodgaqomsfr6" path="res://soul_sound.gd" id="1_4fhtg"]
+[ext_resource type="AudioStream" uid="uid://bapires7dxwrc" path="res://SOUND/Soul 1.mp3" id="2_4vpt8"]
+
+[node name="soul sound" type="Node2D" unique_id=359890996]
+script = ExtResource("1_4fhtg")
+
+[node name="Timer" type="Timer" parent="." unique_id=212849779]
+
+[node name="SOUL" type="AudioStreamPlayer2D" parent="." unique_id=1703100717]
+stream = ExtResource("2_4vpt8")
+pitch_scale = 1.33
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c70242ccww4sq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3uh1b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 20, 1)
+gravity = Vector3(0, 98, 0)
+
+[node name="SNOWPART" type="Node2D" unique_id=987316691]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1377073670]
+amount = 157
+lifetime = 3.9299999999999997
+process_material = SubResource("ParticleProcessMaterial_3uh1b")

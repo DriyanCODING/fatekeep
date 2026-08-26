@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://q3n6sd140kii"]
+
+[ext_resource type="Script" uid="uid://dnfptpoc0avrv" path="res://area_2d.gd" id="1_qsuqg"]
+[ext_resource type="Texture2D" uid="uid://s16nhms4u5ys" path="res://IMAGES 2/lostsoul-sheet.png" id="2_qsuqg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uh1b"]
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alpmg"]
+atlas = ExtResource("2_qsuqg")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2iry"]
+atlas = ExtResource("2_qsuqg")
+region = Rect2(32, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um2c4"]
+atlas = ExtResource("2_qsuqg")
+region = Rect2(64, 64, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uh1b"]
+animations = [{
+"frames": [{
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_alpmg")
+}, {
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_o2iry")
+}, {
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_um2c4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LOST SOUL" type="Node2D" unique_id=484567611]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2119615711]
+script = ExtResource("1_qsuqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2065492591]
+shape = SubResource("CapsuleShape2D_3uh1b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D/CollisionShape2D" unique_id=320431049]
+position = Vector2(3.999999, 12.000002)
+scale = Vector2(1.203125, 1.3359374)
+sprite_frames = SubResource("SpriteFrames_3uh1b")
+autoplay = "default"
+frame_progress = 0.56582373
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]

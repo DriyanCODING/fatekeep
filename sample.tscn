@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ue7h3yluif3c"]
+
+[ext_resource type="Script" uid="uid://itfw6x4a2ltv" path="res://sample.gd" id="1_yimkj"]
+[ext_resource type="Texture2D" uid="uid://bucu3plenqdaf" path="res://icon.svg" id="2_f6qp0"]
+[ext_resource type="PackedScene" uid="uid://bjo0opt281ew8" path="res://WIND.tscn" id="3_f6qp0"]
+[ext_resource type="PackedScene" uid="uid://c70242ccww4sq" path="res://snowpart.tscn" id="3_n0byx"]
+[ext_resource type="AudioStream" uid="uid://b6o1pbn8efj0c" path="res://SOUND/freesound_community-walking-through-grass-80308.mp3" id="4_nfr5o"]
+[ext_resource type="AudioStream" uid="uid://dlk7mkvtp5l01" path="res://SOUND/u_qqkrn9bn55-jumplanding-398256.mp3" id="5_jfoqw"]
+[ext_resource type="PackedScene" uid="uid://bs7we3drmlyuv" path="res://vignetee.tscn" id="6_gn0no"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uh1b"]
+
+[node name="player" type="CharacterBody2D" unique_id=2115706948 groups=["player"]]
+position = Vector2(137, 94)
+script = ExtResource("1_yimkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965466011]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_3uh1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1663239734]
+position = Vector2(0.49999523, 0.5000001)
+scale = Vector2(0.16406249, 0.16406249)
+texture = ExtResource("2_f6qp0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1165322774]
+position = Vector2(0, -1)
+zoom = Vector2(4, 4)
+
+[node name="GRASS" type="AudioStreamPlayer2D" parent="." unique_id=2006164719]
+stream = ExtResource("4_nfr5o")
+volume_db = 0.2
+pitch_scale = 1.7
+
+[node name="JUMPED" type="AudioStreamPlayer2D" parent="." unique_id=71268873]
+stream = ExtResource("5_jfoqw")
+pitch_scale = 1.72
+
+[node name="VIGNETEE" parent="." unique_id=1507174751 instance=ExtResource("6_gn0no")]
+position = Vector2(-1112, -156)
+
+[node name="WIND" parent="." unique_id=820360793 instance=ExtResource("3_f6qp0")]
+position = Vector2(6, -19)
+
+[node name="SNOWPART" parent="." unique_id=987316691 instance=ExtResource("3_n0byx")]
+position = Vector2(8, -212)

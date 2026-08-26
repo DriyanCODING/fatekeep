@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://df8s05gpbbmyo"]
+
+[ext_resource type="Script" uid="uid://dnfptpoc0avrv" path="res://area_2d.gd" id="1_gf172"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uh1b"]
+radius = 26.019224
+
+[node name="Area2D" type="Area2D" unique_id=1560407685]
+visible = false
+script = ExtResource("1_gf172")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1767550236]
+visible = false
+shape = SubResource("CircleShape2D_3uh1b")
